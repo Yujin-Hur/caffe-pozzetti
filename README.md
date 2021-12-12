@@ -15,7 +15,7 @@ localhost:3000/cafe/info
 3. 메뉴
 localhost:3000/cafe/menu
 
-- 사진 추가
+- 사진 추가(완료)
 
 4. 커뮤니티
 localhost:3000/board/community
