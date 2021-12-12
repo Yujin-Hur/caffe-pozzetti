@@ -11,6 +11,9 @@ var connection = mysql.createConnection({
     multipleStatements: true
 });
 
+router.get('/menu', function(req, res, next) { 
+    res.render('menu');
+});
 // community page
 router.get('/community', function(req, res, next) { 
     res.render('community');
