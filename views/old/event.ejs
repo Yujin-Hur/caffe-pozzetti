@@ -1,0 +1,31 @@
+<!-- Main Event Page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1>Event</h1>
+<!-- <a href="/board/write">글 추가</a> -->
+<table border="1"> 
+    <tr>
+        <td>NO</td>
+        <td>Title</td>
+        <td>작성자</td>
+        <td>등록일</td>
+    </tr>
+    <%
+    for(var i=0; i<rows.length; i++)  
+    {
+    %>
+    <tr>
+        <td><%=rows[i].idx%></td>
+        <td><a href="/board/view/<%=rows[i].idx%>"><%=rows[i].title%></a></td>
+        <td><%=rows[i].name%></td>
+        <td><%=rows[i].regdate%></td>
+    </tr>
+    <%}%>
+</table>
+</body>
+</html>

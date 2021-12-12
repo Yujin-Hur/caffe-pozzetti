@@ -1,0 +1,35 @@
+<!-- event 상세내용을 볼 수 있는 page -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1><%=rows.title%></h1>
+<form action="/board/update" method="post">
+    <table border="1">
+        <input type="hidden" name="idx" value="<%=rows.idx%>"/>
+        <tr>
+            <td>작성자</td>
+            <td><%=rows.name%></td>
+        </tr>
+        <tr>
+            <td>제목</td>
+            <td><%=rows.title%></td>
+        </tr>
+        <tr>
+            <td>내용</td>
+            <td><%=rows.content%></td>
+        </tr>
+        <tr>
+            <td>등록일</td>
+            <td><%=rows.regdate%></td>
+        </tr>
+    
+    </table>
+    <a href="/board/event">목록</a>
+</form>
+</body>
+</html>
