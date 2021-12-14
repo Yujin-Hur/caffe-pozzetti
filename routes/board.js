@@ -11,13 +11,20 @@ var connection = mysql.createConnection({
     multipleStatements: true
 });
 
-router.get('/menu', function(req, res, next) { 
-    res.render('menu');
+const multer = require("multer");
+const path = require("path");
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "views/img/event");
+  },
+  filename: function (req, file, cb) {
+    const ext = path.extname(file.originalname);
+    cb(null, path.basename(file.originalname, ext) + "-" + Date.now() + ext);
+  },
 });
-// community page
-router.get('/community', function(req, res, next) { 
-    res.render('community');
-});
+
+var upload = multer({ storage: storage });
 
 // event main page
 var idx = 0;
@@ -27,7 +34,7 @@ router.get('/event', function(req, res, next) {
 
 router.get('/event/:page', function(req, res, next){
     var page = req.params.page;
-    var sql = "SELECT idx, name, title, date_format(regdate, '%Y-%m-%d %H:%i:%s') regdate " + "from event";
+    var sql = "SELECT idx, name, title,date_format(regdate, '%Y-%m-%d %H:%i:%s') regdate " + "from event";
         connection.query(sql, function(err, rows){ 
         if(err) console.error("err : " + err);
         res.render('event', {rows:rows});
@@ -45,7 +52,7 @@ router.get('/write', function(req, res, next){
     res.render('write')
 });
 
-router.post('/write', function(req, res, next){
+router.post('/write', upload.single("image"), (req, res, next) => {
     var sql = "SELECT COUNT(*) as cnt FROM event"
     connection.query(sql,function(err, result){ 
         if (err) console.error("err : " + err);
@@ -55,9 +62,10 @@ router.post('/write', function(req, res, next){
     var name = req.body.name;                   
     var title = req.body.title;
     var content = req.body.content;
+    const image = `/img/event/${req.file.filename}`; // image 경로 만들기
     // var passwd = req.body.passwd;
-    var datas = [name, title, content, idx]; 
-    var sql = "insert into event(name, title, content, regdate, modidate, hit, idx) values(?,?,?,now(),now(),0,?)";  // ? 는 매개변수
+    var datas = [name, title, content, idx, image]; 
+    var sql = "insert into event(name, title, content, regdate, modidate, hit, idx, image) values(?,?,?,now(),now(),0,?,?)";  
     connection.query(sql, datas, function(err,rows){ 
         if (err) console.error("err : " + err);
         res.redirect('/board/event')
@@ -68,7 +76,7 @@ router.post('/write', function(req, res, next){
 // view: event 상세 페이지
 router.get('/view/:idx', function(req, res, next){ 
     var idx = req.params.idx; 
-    var sql = "SELECT idx, name, title, date_format(modidate, '%Y-%m-%d %H:%i:%s') modidate, " +   
+    var sql = "SELECT idx, name, title, image, date_format(modidate, '%Y-%m-%d %H:%i:%s') modidate, " +   
         "content, hit from event where idx=?";
         connection.query(sql,[idx], function(err, rows){ 
         if(err) console.error("err : " + err);
@@ -127,3 +135,5 @@ router.get('/view/:idx', function(req, res, next){
 // });
 
 module.exports = router;
+
+

@@ -45,6 +45,7 @@
             height: 554px;
             margin: auto;
         }
+ 
 
         #footer {
             text-align: center;
@@ -87,7 +88,7 @@
                 <a class="nav-link" href="/cafe/menu">메뉴</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/board/community">커뮤니티</a>
+                <a class="nav-link" href="/community">커뮤니티</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/board/event">이벤트소식</a>
@@ -98,7 +99,7 @@
         </ul>
     </div>
     <div id="content">
-        <form action="/board/write" method="post">
+        <form action="/board/write" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="exampleFormControlInput1">작성자</label>
                 <input type="text" class="form-control" name="name" id="name" required />
@@ -112,7 +113,7 @@
                 <textarea class="form-control" name="content" id="content" cols="20" rows="10" required></textarea>
             </div>
             <div class="form-group">
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
             </div>
             <div class="last">
                 <button type="summit" class="btn btn-outline-secondary"

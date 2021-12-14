@@ -41,9 +41,9 @@
         }
 
         #content {
+            /* height: 554px;  */
             width: 1400px;
-            height: 554px;
-            margin: auto;
+            margin: 1em auto 2em;
         }
 
         #footer {
@@ -64,6 +64,13 @@
             padding: 20px 20px 20px 20px;
             border: solid 3px black;
             border-radius: 15px;
+        }
+        .last{
+            text-align: right;
+        }
+        
+        .btn-outline-secondary {
+            margin: 0.5em auto 2em;
         }
     </style>
 
@@ -89,7 +96,7 @@
                 <a class="nav-link" href="/cafe/menu">메뉴</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/board/community">커뮤니티</a>
+                <a class="nav-link" href="/community">커뮤니티</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/board/event">이벤트소식</a>
@@ -103,10 +110,7 @@
         <div class="article">
             <p><%=rows.title%></p>
             <hr>
-            <figure class="figure">
-                <img src="img/cafe_poze1.jpg" class="figure-img img-fluid rounded" alt="...">
-                <figcaption class="figure-caption"></figcaption>
-            </figure>
+            <img src="<%=rows.image%>" alt="이미지" width="300" />
             <p><%=rows.content%></p>
         </div>
 

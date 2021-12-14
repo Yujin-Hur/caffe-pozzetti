@@ -69,7 +69,7 @@
                 <a class="nav-link" href="/cafe/menu">메뉴</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/board/community">커뮤니티</a>
+                <a class="nav-link" href="/community">커뮤니티</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/board/event">이벤트소식</a>
@@ -80,127 +80,35 @@
         </ul>
     </div>
     <div id="wrap2">
-        <div class="posting-box">
-            <div class="jumbotron">
-                <h1 class="display-4"> 후기를 작성해 주세요!</h1>
-                <p class="lead">마신 음료수의 사진과 후기를 남겨주시면 추첨을 통해 이벤트가 있을 수도??</p>
-                <hr class="my-4">
-                <p class="lead">
-                    <a class="mybtn btn btn-primary btn-lg" href="#" role="button">포스팅박스 열기</a>
-                </p>
-            </div>
-            <form>
-                <div class="urlBox" id="postBox">
-                    <div class="form-group">
-                        <label>제목 </label>
-                        <input type="text" class="form-control" id="articleUrl" aria-describedby="emailHelp">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">후기</label>
-                        <textarea class="form-control" id="exampleInputPassword1"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlFile1">Example file input</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                    </div>
-
-                    <button type="submit" class="mybtn2 btn  btn-primary">후기저장</button>
-
-                </div>
-            </form>
+        <div class="jumbotron">
+            <h1 class="display-4"> 후기를 작성해 주세요!</h1>
+            <p class="lead">마신 음료수의 사진과 후기를 남겨주시면 추첨을 통해 이벤트가 있을 수도??</p>
+            <hr class="my-4">
+            <p class="lead">
+                <button type="button" class="mybtn2 btn  btn-primary" onclick=" location.href='/community/review'">후기 작성하러 가기</button>
+            </p>
         </div>
+
         <div class="card-columns">
+
+            <% for(var i=0; i<rows.length; i++){ %>
             <div class="card">
-                <img class="card-img-top" src="/img/cafe_poze1.jpg" alt="Card image cap">
+                <img class="card-img-top" src="<%=rows[i].image%>" alt="Card image cap">
                 <div class="card-body">
-
-                    <p class="card-text">제목</p>
-                    <p class="card-text comment">후기 내용 </p>
-
+                    <p class="card-text"><%=rows[i].name%></p>
+                    <p class="card-text comment"><%=rows[i].content%></p>
                 </div>
             </div>
-            <div class="card">
-                <img class="card-img-top" src="/img/cafe_poze2.jpg" alt="Card image cap">
-                <div class="card-body">
-
-                    <p class="card-text">제목</p>
-                    <p class="card-text comment">후기 내용</p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="/img/cafe_poze3.jpg" alt="Card image cap">
-                <div class="card-body">
-
-                    <p class="card-text">제목</p>
-                    <p class="card-text comment">후기 내용</p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="/img/cafe_poze3.jpg" alt="Card image cap">
-                <div class="card-body">
-
-                    <p class="card-text">제목</p>
-                    <p class="card-text comment">후기 내용</p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="/img/cafe_poze3.jpg" alt="Card image cap">
-                <div class="card-body">
-
-                    <p class="card-text">제목</p>
-                    <p class="card-text comment">후기 내용</p>
-                </div>
-            </div>
-
+            <%}%>
 
         </div>
+        <button type="button" class="mybtn2 btn  btn-primary" onclick=" location.href='/community/review'">후기</button>
 
 
     </div>
 
     </div>
-    <script>
-        const tmp = document.querySelector(".mybtn");
-
-        function openclose() {
-            let status = $('#postBox').css('display');
-            if (status == 'block') {
-                $('#postBox').hide();
-                $('.mybtn').text('포스팅박스 열기')
-            } else {
-                $('#postBox').show();
-                $('.mybtn').text('포스팅박스 닫기')
-            }
-        }
-        const tmp2 = document.querySelector(".mybtn2");
-        tmp.addEventListener("click", openclose);
-
-
-
-        let file = $('#exampleFormControlFile1');
-
-        function addComment() {
-            let name = $('#articleUrl').val();
-            let comment = $('#exampleInputPassword1').val();
-            let file = $('#exampleFormControlFile1').val().split("\\")[2];
-            let texthtml = `<div class="card">
-            <img class="card-img-top"
-                 src="../img/${file}";
-                 alt="Card image cap">
-            <div class="card-body">
-
-                <p class="card-text">${name}</p>
-                <p class="card-text comment">${comment}</p>
-            </div>
-        </div>`
-            $('.card-columns').append(texthtml);
-            $('#articleUrl').val('');
-            $('#exampleFormControlFile1').val('');
-            $('#exampleInputPassword1').val('');
-
-        }
-        tmp2.addEventListener("click", addComment);
-    </script>
+    
 </body>
 <style>
     #home a {

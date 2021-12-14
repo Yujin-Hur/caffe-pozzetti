@@ -13,11 +13,14 @@ app.use(express.static('views'));
 
 var mainRouter = require('./routes/main')
 var boardRouter = require('./routes/board')
+var comRouter = require('./routes/community')
 var loginRouter = require('./routes/login')
 
 app.use('/cafe', mainRouter);
 app.use('/login', loginRouter);
 app.use('/board', boardRouter);
+app.use('/community', comRouter);
+
 
 
 app.get('/', function(req, res, next) { 
