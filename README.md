@@ -20,13 +20,14 @@ localhost:3000/cafe/menu
 4. 커뮤니티
 localhost:3000/board/community
 
-- 사진 업로드 추가
+- 사진 업로드 추가(완료)
 
 5. 이벤트 소식
 localhost:3000/board/event
 
 
 6. 인스타
+
 
 
 
