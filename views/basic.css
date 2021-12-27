@@ -1,72 +1,150 @@
+html {
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+}
 
-        html {
+body {
+    min-height: 100%;
+}
 
-            position: relative;
+#home a {
+    margin-top: 10px;
+    height: 35px;
+    width: 30px;
+}
 
-            min-height: 100%;
+.nav {
+    height: 100px;
+    line-height: 100px;
+}
 
-            margin: 0;
+.nav-item {
+    width: 20%;
+    text-align: center;
+}
+
+#content {
+    width: 1400px;
+    margin: auto;
+}
+
+.wrap p {
+    font-size: 15px;
+    padding-top: 30px;
+    padding: 0;
+}
+
+.last {
+    text-align: right;
+}
+
+.card-img-top {
+    background-size: cover;
+    width: 453px;
+    height: 300px;
+}
+
+.card {
+    width: 400px;
+}
+
+#footer {
+    padding: 15px 0;
+    text-align: center;
+    color: white;
+    text-align: center;
+    background-color: darkgray;
+    height: 125px;
+}
+
+#home a {
+    margin-top: 10px;
+    height: 35px;
+    width: 30px;
+}
+
+li.nav-item {
+    width: 20%;
+    height: 100px;
+    text-align: center;
+    margin-top: -2em;
+
+}
+
+.nav-link {
+
+    text-align: center;
+    font-family: 'Spoqa Han Sans', 'Sans-serif';
+    font-size: 18px;
+    color: #55585b;
+    height: 100px;
+}
+
+a.nav-link {
+    padding: 2em 2em 0.5em;
+    height: 50px;
+}
 
 
-        }
+#footer {
+    text-align: center;
+    background-color: darkgray;
+    height: 125px;
+}
 
-        body {
+.wrap {}
 
-            min-height: 100%;
+.wrap p {
+    font-size: 15px;
+    padding-top: 30px;
+    padding: 0;
+}
 
-        }
+#carouselExampleIndicators {
+    text-align: center;
 
-        #home a {
-            margin-top: 10px;
-            height: 35px;
-            width: 30px;
-        }
+}
 
-        .nav {
-            height: 100px;
-            line-height: 100px;
-            background-color: #fff1fd;
-        }
+.carousel-inner {
+    background-size: cover;
+    margin: auto;
+    text-align: center;
+    width: 900px;
+    height: 554px;
+}
 
-        .nav-item {
-            width: 20%;
-            text-align: center;
-        }
+.carousel-control-prev {
+    padding-left: 300px;
+}
 
-        #content {
-            width: 1400px;
+.carousel-control-prev-icon {
+    padding-left: 300px;
+}
 
-            margin: auto;
-        }
+.carousel-control-next-icon {
+    padding-right: 300px;
+}
 
+.carousel-control-next {
+    padding-right: 300px;
+}
 
-        #footer {
-            position: absolute;
+.navbar-brand {
+    text-align: center;
+    padding-left: 45%;
+    font-size: 1.5rem;
+}
 
-            left: 0;
+.bg-light {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
 
-            bottom: 0;
-
-            width: 100%;
-
-            padding: 15px 0;
-
-            text-align: center;
-
-            color: white;
-            text-align: center;
-            background-color: darkgray;
-            height: 125px;
-        }
-
-
-        .wrap p {
-            font-size: 15px;
-            padding-top: 30px;
-            padding: 0;
-        }
-
-
-
-
-
+#logo {
+    display: block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0 50%;
+}

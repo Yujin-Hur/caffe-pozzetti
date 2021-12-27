@@ -32,7 +32,7 @@ router.get('/', function(req, res, next) {
     var sql = "SELECT name, idx, content, image, date_format(modidate, '%Y-%m-%d %H:%i:%s') modidate " + "from community";
         connection.query(sql, function(err, rows){ 
         if(err) console.error("err : " + err);
-        console.log(rows)
+        // console.log(rows)
         res.render('community', {rows:rows});
     });
     // res.redirect('/community/1');
